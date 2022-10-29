@@ -8,7 +8,6 @@ export default function Menu() {
 
   const contextMenu = useContext(AppContext)
 
-
   return (
     <>
       <aside className="main-sidebar sidebar-light-primary elevation-2">
