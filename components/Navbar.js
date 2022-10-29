@@ -100,12 +100,25 @@ export default function Navbar() {
             <span className="d-block text-principal"><strong>FullScreen</strong></span>            
             </a>
           </li>
+
+          <li className="nav-item d-none d-sm-inline-block">
+            <Link href="/login">
+              <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
+                <FontAwesomeIcon icon={faUser} className="icon-principal" />
+                <span className="d-block text-principal"><strong>Login</strong></span>
+              </a>
+            </Link>
+          </li>
+
           <li className="nav-item">
             <a className="nav-link text-center pt-0 pb-0 pl-3 pr-2" data-widget="control-sidebar" data-slide="true" href="#" role="button">
             <FontAwesomeIcon icon={faRightToBracket} className="icon-principal"/>
             <span className="d-block text-principal"><strong>Logout</strong></span>            
             </a>
           </li>
+
+
+          
         </ul>
       </nav>      
     
