@@ -1,10 +1,25 @@
-import React from 'react'
+import React ,{useState, useContext, useEffect} from 'react'
+import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserShield } from '@fortawesome/free-solid-svg-icons'
-//import { faBottleWater } from '@fortawesome/free-regular-svg-icons'
-
+import AppContext from '../../context/AppContext.js'
 
 export default function Login() {
+  const router = useRouter()
+  const contextLogin = useContext(AppContext)
+
+  const login = (e)=>{
+    e.preventDefault()
+    contextLogin.setLoginContext(true)
+    router.push("/")
+  }
+
+  useEffect(()=>{
+    contextLogin.setLoginContext(false)
+    //
+  },[])
+
+
   return (
     <div className="container-fluid" style={{marginTop:'50px'}}>
 
@@ -36,12 +51,12 @@ export default function Login() {
                 <div className="col-8">
                 </div>
                 <div className="col-4">
-                  <button type="submit" className="btn btn-primary btn-block"><b>Login</b></button>
+                  <button type="submit" className="btn btn-primary btn-block" onClick={login}><b>Login</b></button>
                 </div>
               </div>
             </form>
-            <div className="row">
-              <FontAwesomeIcon icon={faUserShield} className="icon-principal " style={{fontSize:'50px'}} />
+            <div className="row mt-3 mb-3">
+              <FontAwesomeIcon icon={faUserShield} className="icon-principal  text-primary" style={{fontSize:'50px'}} />
             </div>
           </div>
         </div>

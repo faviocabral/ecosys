@@ -1,4 +1,4 @@
-import {React, useState, useContext} from 'react'
+import {React, useState, useContext, useEffect} from 'react'
 import Layout from '../components/Layout'
 import Dashboard from '../components/Dashboard'
 import AppContext from '../context/AppContext.js'
@@ -7,16 +7,14 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons'
 
 function index() {
 
-  //const ContextMenu = useContext(AppContext)
-  //ContextMenu.setMenu('Menu Principal') 
+  const contextLogin = useContext(AppContext)
 
   return (
-
-      <Dashboard>
-        <>
-          <h1>Inicio</h1>
-        </>
-      </Dashboard>
+    <Dashboard>
+      <>
+        <h1>Inicio</h1>
+      </>
+    </Dashboard>
 
   )
 }

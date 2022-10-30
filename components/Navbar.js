@@ -2,10 +2,13 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faShoppingCart, faBasketShopping, faCubes, faExpand, faFilter, faGears, faHeadset, faMagnifyingGlass, faRightToBracket, faTags, faTruckFast, faUser, faXmark } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 import Head from 'next/head'
 
 
 export default function Navbar() {
+
+
   return (
     <>
       <nav className="main-header navbar navbar-expand navbar-white navbar-light elevation-1">
@@ -101,23 +104,14 @@ export default function Navbar() {
             </a>
           </li>
 
-          <li className="nav-item d-none d-sm-inline-block">
+          <li className="nav-item d-none d-sm-inline-block" >
             <Link href="/login">
-              <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
-                <FontAwesomeIcon icon={faUser} className="icon-principal" />
-                <span className="d-block text-principal"><strong>Login</strong></span>
+              <a className="nav-link text-center pt-0 pb-0 pl-3 pr-2"  data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <FontAwesomeIcon icon={faRightToBracket} className="icon-principal" />
+                <span className="d-block text-principal"><strong>Logout</strong></span>
               </a>
-            </Link>
+            </Link>  
           </li>
-
-          <li className="nav-item">
-            <a className="nav-link text-center pt-0 pb-0 pl-3 pr-2" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-            <FontAwesomeIcon icon={faRightToBracket} className="icon-principal"/>
-            <span className="d-block text-principal"><strong>Logout</strong></span>            
-            </a>
-          </li>
-
-
           
         </ul>
       </nav>      

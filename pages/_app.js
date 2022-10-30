@@ -20,10 +20,11 @@ import AppContext from '../context/AppContext.js'
 function MyApp({ Component, pageProps }) {
 
   const [menu ,setMenu] = useState('Menu Principal')
-
+  const [loginContext ,setLoginContext] = useState(false)
+  const [user, setUser] = useState('')
 
   return (
-    <AppContext.Provider value={{menu , setMenu}}>
+    <AppContext.Provider value={{menu , setMenu , loginContext , setLoginContext, user, setUser}}>
       <Component {...pageProps} />
       <ToastContainer
           position="top-right"

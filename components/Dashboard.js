@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect , useContext } from 'react'
 import Menu from '../components/Menu'
 import Navbar from '../components/Navbar'
+import AppContext from '../context/AppContext.js'
+import {useRouter} from 'next/router'
 
 export default function Dashboard({children}) {
+
+  const router = useRouter()
+  const contextLogin = useContext(AppContext)
+ 
+  useEffect(()=> {
+    if(contextLogin.loginContext === false) {
+      router.push("/login")
+    }
+  },[])
+
+
   return (
     <>
       <Navbar />
