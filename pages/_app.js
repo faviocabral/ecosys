@@ -8,15 +8,14 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
 import 'react-toastify/dist/ReactToastify.css'
-/* librerias del admin */
-//import '../node_modules/admin-lte/dist/css/Adminlte.min.css'
+import 'admin-lte/dist/css/Adminlte.min.css'
+
 //import 'admin-lte/dist/js/Adminlte.min.js'
 
 import { ToastContainer } from 'react-toastify'
-import '../styles/Adminlte.min.css'
 import '../styles/globals.css'
-
 import AppContext from '../context/AppContext.js'
+
 
 function MyApp({ Component, pageProps }) {
 
