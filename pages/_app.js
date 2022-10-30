@@ -1,4 +1,5 @@
 import {useState, createContext} from 'react'
+import 'admin-lte/dist/css/Adminlte.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
 
@@ -8,7 +9,6 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 
 import 'react-toastify/dist/ReactToastify.css'
-import 'admin-lte/dist/css/Adminlte.min.css'
 
 //import 'admin-lte/dist/js/Adminlte.min.js'
 
