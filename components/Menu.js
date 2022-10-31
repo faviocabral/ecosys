@@ -12,7 +12,7 @@ export default function Menu() {
     <>
       <aside className="main-sidebar sidebar-light-primary elevation-2">
         <Link href="/">
-          <a href="index3.html" className="brand-link">
+          <a href="" className="brand-link text-center">
             <span className="brand-text font-weight"> <strong>ECOSYS</strong></span>
           </a>
         </Link>

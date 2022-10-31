@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faShoppingCart, faBasketShopping, faCubes, faExpand, faFilter, faGears, faHeadset, faMagnifyingGlass, faRightToBracket, faTags, faTruckFast, faUser, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faMoneyCheckDollar, faBars, faShoppingCart, faBasketShopping, faCubes, faExpand, faFilter, faGears, faHeadset, faMagnifyingGlass, faRightToBracket, faTags, faTruckFast, faUser, faXmark, faSackDollar, faDollarSign, faCircleDollarToSlot, faFilterCircleDollar, faDollar, faIndustry, faUserMedical, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import Head from 'next/head'
@@ -68,6 +68,42 @@ export default function Navbar() {
               <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
                 <FontAwesomeIcon icon={faBasketShopping} className="icon-principal" />
                 <span className="d-block text-principal"><strong>Venta</strong></span>
+              </a>
+            </Link>
+          </li>
+
+          <li className="nav-item d-none d-sm-inline-block">
+            <Link href="/pagos">
+              <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
+                <FontAwesomeIcon icon={faSackDollar} className="icon-principal" />
+                <span className="d-block text-principal"><strong>Pagos</strong></span>
+              </a>
+            </Link>
+          </li>
+
+          <li className="nav-item d-none d-sm-inline-block">
+            <Link href="/cobros">
+              <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
+                <FontAwesomeIcon icon={faDollar} className="icon-principal" />
+                <span className="d-block text-principal"><strong>Cobros</strong></span>
+              </a>
+            </Link>
+          </li>
+
+          <li className="nav-item d-none d-sm-inline-block">
+            <Link href="/produccion">
+              <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
+                <FontAwesomeIcon icon={faIndustry} className="icon-principal" />
+                <span className="d-block text-principal"><strong>Produccion</strong></span>
+              </a>
+            </Link>
+          </li>
+
+          <li className="nav-item d-none d-sm-inline-block">
+            <Link href="/rrhh">
+              <a href="#" className="nav-link text-center pt-0 pb-0 pl-3 pr-1">
+                <FontAwesomeIcon icon={faPeopleGroup} className="icon-principal" />
+                <span className="d-block text-principal"><strong>RRHH</strong></span>
               </a>
             </Link>
           </li>
