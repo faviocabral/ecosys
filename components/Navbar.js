@@ -110,6 +110,7 @@ export default function Navbar() {
 
         </ul>
         <ul className="navbar-nav ml-auto">
+      {/*
           <li className="nav-item">
             <a className="nav-link text-center pt-0 pb-0 pl-3 pr-1" data-widget="navbar-search" href="#" role="button">
             <FontAwesomeIcon icon={faMagnifyingGlass} className="icon-principal" />
@@ -139,6 +140,8 @@ export default function Navbar() {
             <span className="d-block text-principal"><strong>FullScreen</strong></span>            
             </a>
           </li>
+      */}
+
 
           <li className="nav-item d-none d-sm-inline-block" >
             <Link href="/login">
