@@ -1,19 +1,28 @@
 import {React, useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft, faCircle, faDiagramProject, faGaugeHigh } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faCircle, faDiagramProject, faGaugeHigh, faAnglesLeft, faBars} from '@fortawesome/free-solid-svg-icons'
 import AppContext from '../context/AppContext.js'
 import Link from 'next/link'
 import Image from 'next/image'
-export default function Menu() {
+import { AbrirMenu } from '../utils/reSize.js'
 
+
+export default function Menu() {
+  //para cambiar el nombre del menu 
   const contextMenu = useContext(AppContext)
+
+  const handleClickMenu = event =>{
+    //modificamos el classlist del padre del menu clickeado
+    event.currentTarget.parentNode.classList.toggle('menu-open')
+  }
 
   return (
     <>
       <aside className="main-sidebar sidebar-light-primary elevation-2">
         <Link href="/">
-          <a href="" className="brand-link text-center">
+          <a href="" className="brand-link d-flex justify-content-between align-items-center pl-3 pr-3 " onClick={AbrirMenu} >
             <span className="brand-text font-weight"> <strong>ECOSYS</strong></span>
+            <FontAwesomeIcon icon={faAnglesLeft} className="icon-size-1 icon-elevation-1 text-right"/>            
           </a>
         </Link>
         <div className="sidebar">
@@ -29,8 +38,8 @@ export default function Menu() {
             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
               {/**menu 1 */}
-              <li className="nav-item menu-open">
-                <a href="#" className="nav-link bg-primary elevation-1">
+              <li className="nav-item menu-open" >
+                <a href="#" className="nav-link bg-primary elevation-1" onClick={handleClickMenu}>
                 <FontAwesomeIcon icon={faGaugeHigh} className="mr-2 icon-size-1 icon-elevation-1" />
                   <p>
                     <strong>{contextMenu.menu }</strong>
@@ -70,6 +79,7 @@ export default function Menu() {
                 </ul>
               </li>
 
+
               {/**menu 2 */}
               {/*
               <li className="nav-item menu-open">
@@ -96,6 +106,9 @@ export default function Menu() {
                 </ul>
               </li>
               */}
+
+
+
             </ul>
           </nav>
         </div>

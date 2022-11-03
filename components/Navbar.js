@@ -1,13 +1,30 @@
-import React from 'react'
+import React , {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyCheckDollar, faBars, faShoppingCart, faBasketShopping, faCubes, faExpand, faFilter, faGears, faHeadset, faMagnifyingGlass, faRightToBracket, faTags, faTruckFast, faUser, faXmark, faSackDollar, faDollarSign, faCircleDollarToSlot, faFilterCircleDollar, faDollar, faIndustry, faUserMedical, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import Head from 'next/head'
-
+import { AbrirMenu } from '../utils/reSize.js'
 
 export default function Navbar() {
 
+  const [ventana , setVentana] = useState('web')
+  useEffect( () => { window.addEventListener("resize", listen) }, [])
+  // con esto hacemos que controlamos el tamño de la pantalla... 
+  const listen = ()=>{ 
+    let classBody = String(document.querySelector("body").classList) 
+    console.log( window.innerWidth ) 
+
+    if(window.innerWidth <= 991){
+      setVentana('tablet')
+      classBody.split(" ").forEach(item=> (item.length > 0 )? document.querySelector("body").classList.remove(item) : '' )
+      document.querySelector("body").classList.add("sidebar-collapse")
+
+    }else if(window.innerWidth > 991){ 
+      classBody.split(" ").forEach(item=> (item.length > 0 )? document.querySelector("body").classList.remove(item) : '' )
+      setVentana('web')
+    }
+  }
 
   return (
     <>
@@ -15,7 +32,7 @@ export default function Navbar() {
         <ul className="navbar-nav">
           {/*boton control del menu izquierdo */}
           <li className="nav-item">
-            <a className="nav-link" data-widget="pushmenu" href="#" role="button"> <FontAwesomeIcon icon={faBars} className="icon-size-1 icon-elevation-1"/> </a>
+            <a className="nav-link" onClick={AbrirMenu} data-widget="pushmenu" href="#" role="button"> <FontAwesomeIcon icon={faBars} className="icon-size-1 icon-elevation-1"/> </a>
           </li>
           
           <li className="nav-item d-none d-sm-inline-block">
