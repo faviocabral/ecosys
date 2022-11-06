@@ -24,7 +24,7 @@ export default function Dashboard({children}) {
         <Navbar />
         <Menu />
           <div className="content-wrapper" style={{minHeight: '100%', height:'100%'}}>
-            <div className="content-header">
+            <div className="content-header pb-1">
               <div className="container-fluid">
                 <div className="row mb-2">
                   <div className="col-sm-6">
