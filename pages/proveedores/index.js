@@ -4,7 +4,7 @@ import AppContext from '../../context/AppContext.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChartSimple, faCircleRight, faMoneyBill1Wave, faUsers, faSackDollar } from '@fortawesome/free-solid-svg-icons'
 import Box from '../../components/box.js'
-import TableList from '../../components/tableList.js'
+import TableList from '../../components/TableList.js'
 import ApexChart from '../../components/ApexChart.js'
 export default function Proveedores() {
   const contextMenu = useContext(AppContext)
