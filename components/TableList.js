@@ -5,7 +5,7 @@ import {faUp , faBars } from '@fortawesome/free-solid-svg-icons'
 export default function TableList({titulo='Productos'}) {
   return (
     <>
-      <div className="card">
+      <div className="card h-100">
         <div className="card-header border-0">
           <h3 className="card-title"><b>{titulo}</b></h3>
           <div className="card-tools">
@@ -75,6 +75,15 @@ export default function TableList({titulo='Productos'}) {
                 <td>
                   500.000gs
                 </td>
+              </tr>
+              <tr>
+                <td colspan="2"><b>Totales</b></td>
+                <td><b>41.000.000gs</b></td>
+                <td><b>10.000.000gs</b></td>
+              </tr>
+              <tr>
+                <td colspan="3"><b>Saldos</b></td>
+                <td><b>31.000.000gs</b></td>
               </tr>
             </tbody>
           </table>
