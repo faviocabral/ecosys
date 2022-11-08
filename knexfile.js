@@ -8,13 +8,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      filename: './dev.sqlite3'
-    },
-    connection: {
-      host : '127.0.0.1',
-      port : 3306,
-      user : 'root',	
-      password : '',
+      host : 'mysql-94780-0.cloudclusters.net',
+      port : 17425,
+      user : 'admin',	
+      password : 'We3zMFT2',
       database : 'ecosys'
     },
     migrations: {

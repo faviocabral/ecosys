@@ -1,20 +1,53 @@
-import React ,{useState, useContext, useEffect} from 'react'
+import React ,{useState, useContext, useEffect, useRef} from 'react'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserShield } from '@fortawesome/free-solid-svg-icons'
+import { faLock, faUserShield } from '@fortawesome/free-solid-svg-icons'
 import AppContext from '../../context/AppContext.js'
+import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
 
 export default function Login() {
+  const userInput = useRef()
   const router = useRouter()
   const contextLogin = useContext(AppContext)
+  const [data, setData] = useState({})
 
-  const login = (e)=>{
+  const updateData = e => {
+      setData({
+          ...data,
+          [e.target.name]: e.target.value
+      })
+  }
+
+  const login = async (e)=>{
     e.preventDefault()
-    contextLogin.setLoginContext(true)
-    router.push("/")
+    Swal.showLoading()
+    fetch('api/login', {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(response => response.json()) 
+    .then(json => {
+      Swal.close()
+      console.log(json)
+      if(!json.login){
+        toast.error('Datos incorrectos !!!',{ autoClose:1000 })
+      }else{
+        toast.success('Datos correctos !!!',{ autoClose:500 })
+        contextLogin.setLoginContext(true)
+        router.push("/proveedores")        
+      }
+    
+    })
+    .catch(err => console.log(err))
+
+
   }
 
   useEffect(()=>{
+    userInput.current.focus()
     contextLogin.setLoginContext(false)
     //
   },[])
@@ -30,20 +63,20 @@ export default function Login() {
           </div>
           <div className="card-body">
             <p className="login-box-msg"><b>INICIO SESION</b> </p>
-            <form method="post">
+            <form onSubmit={login}>
               <div className="input-group mb-3">
-                <input type="email" className="form-control" placeholder="Usuario" />
+                <input type="text" ref={userInput} className="form-control" placeholder="Usuario" name='usuario' onChange={updateData}  required/>
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-envelope" />
+                   <FontAwesomeIcon icon={faUser} /> 
                   </div>
                 </div>
               </div>
               <div className="input-group mb-3">
-                <input type="password" className="form-control" placeholder="Contraseña" />
+                <input type="password" className="form-control" placeholder="Contraseña" name='password' onChange={updateData} required/>
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-lock" />
+                    <FontAwesomeIcon icon={faLock} />
                   </div>
                 </div>
               </div>
@@ -51,7 +84,7 @@ export default function Login() {
                 <div className="col-8">
                 </div>
                 <div className="col-4">
-                  <button type="submit" className="btn btn-primary btn-block" onClick={login}><b>Login</b></button>
+                  <button type="submit" className="btn btn-primary btn-block" ><b>Login</b></button>
                 </div>
               </div>
             </form>

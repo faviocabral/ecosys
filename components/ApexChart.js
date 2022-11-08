@@ -4,7 +4,7 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUp , faBars } from '@fortawesome/free-solid-svg-icons'
 
-export default function ApexChart() {
+export default function ApexChart({titulo = 'Top 10 '}) {
 
     const [state , setState ] = useState({
         series: [{
@@ -40,7 +40,7 @@ export default function ApexChart() {
 
     <div className="card h-100">
         <div className="card-header border-0">
-        <h3 className="card-title"><b>Top 10 Proveedores</b></h3>
+        <h3 className="card-title"><b>{titulo}</b></h3>
         <div className="card-tools">
             <a href="#" className="btn btn-tool btn-sm">
             <i className="fas fa-download" />
