@@ -12,15 +12,15 @@ export default async function  handler(req , res ){
                         .where('codigo', usuario)
                         .then( async (rows)=>{
                             const match = await bcrypt.compare(password, rows[0].password);
-                            //return res.status(200).json({message:' logging !!!', login : match })
+                            res.status(200).json({message:' logging !!!', login : match })
                         })
-                        res.status(200).json({message:' logging !!!', login : true })
+                        //res.status(200).json({message:' logging !!!', login : true })
                         break;
             } catch (error) {
                 res.status(500).json({message:' hubo un error con el metodo post !!!'})
             }
         default:
-            res.status(500).end({message:' metodo no valido !!!'})
+            res.status(500).json({message:' metodo no valido !!!'})
     }
 
 }
