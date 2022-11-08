@@ -10,11 +10,11 @@ export default async function  handler(req , res ){
                 await knex('usuarios')
                         .select()
                         .where('codigo', usuario)
-                        .then(async (rows)=>{
-                            
+                        .then( async (rows)=>{
                             const match = await bcrypt.compare(password, rows[0].password);
-                            return res.status(200).json({message:' logging !!!', login : match }).end()
+                            //return res.status(200).json({message:' logging !!!', login : match })
                         })
+                        return res.status(200).json({message:' logging !!!', login : true })
   
             } catch (error) {
                 return res.status(500).json({message:' hubo un error con el metodo post !!!'})
