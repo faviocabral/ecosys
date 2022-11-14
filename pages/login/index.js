@@ -6,6 +6,11 @@ import AppContext from '../../context/AppContext.js'
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
+import Cookies from 'js-cookie'
+const { randomBytes } = require('crypto')
+//https://www.section.io/engineering-education/client-side-auth-with-express-cookie-parser/
+
+
 
 export default function Login() {
   const userInput = useRef()
@@ -35,9 +40,10 @@ export default function Login() {
       if(!json.login){
         toast.error('Datos incorrectos !!!',{ autoClose:1000 })
       }else{
+        Cookies.set('loggin', true, { expires: 1 })
         toast.success('Datos correctos !!!',{ autoClose:500 })
         contextLogin.setLoginContext(true)
-        router.push("/proveedores")        
+        router.push("/proveedores")    
       }
     
     })

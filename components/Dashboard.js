@@ -3,6 +3,7 @@ import Menu from '../components/Menu'
 import Navbar from '../components/Navbar'
 import AppContext from '../context/AppContext.js'
 import {useRouter} from 'next/router'
+import Cookies from 'js-cookie'
 
 export default function Dashboard({children}) {
 
@@ -11,8 +12,13 @@ export default function Dashboard({children}) {
  
   useEffect(()=> {
     if(contextLogin.loginContext === false) {
-      router.push("/login")
+      if(Cookies.get('loggin') == 'false' ){
+        router.push("/login")
+      }else{
+        contextLogin.setLoginContext(true)
+      }
     }
+    
   },[])
 
   return (

@@ -77,12 +77,12 @@ export default function TableList({titulo='Productos'}) {
                 </td>
               </tr>
               <tr>
-                <td colspan="2"><b>Totales</b></td>
+                <td colSpan="2"><b>Totales</b></td>
                 <td><b>41.000.000gs</b></td>
                 <td><b>10.000.000gs</b></td>
               </tr>
               <tr>
-                <td colspan="3"><b>Saldos</b></td>
+                <td colSpan="3"><b>Saldos</b></td>
                 <td><b>31.000.000gs</b></td>
               </tr>
             </tbody>

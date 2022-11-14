@@ -1,4 +1,4 @@
-import {React, useState, useContext} from 'react'
+import {React, useContext} from 'react'
 import Dashboard from '../../components/Dashboard.js'
 import AppContext from '../../context/AppContext.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,9 +6,14 @@ import {faChartSimple, faCircleRight, faMoneyBill1Wave, faUsers, faSackDollar } 
 import Box from '../../components/box.js'
 import TableList from '../../components/TableList.js'
 import ApexChart from '../../components/ApexChart.js'
+import {useRouter} from 'next/router'
+
+
+
 export default function Proveedores() {
   const contextMenu = useContext(AppContext)
   contextMenu.setMenu('Menu Proveedores') 
+  const router = useRouter()
 
   return (
     <Dashboard>
