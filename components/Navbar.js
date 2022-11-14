@@ -1,14 +1,20 @@
-import React , {useState, useEffect} from 'react'
+import React , {useState, useEffect, useContext} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoneyCheckDollar, faBars, faShoppingCart, faBasketShopping, faCubes, faExpand, faFilter, faGears, faHeadset, faMagnifyingGlass, faRightToBracket, faTags, faTruckFast, faUser, faXmark, faSackDollar, faDollarSign, faCircleDollarToSlot, faFilterCircleDollar, faDollar, faIndustry, faUserMedical, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import Head from 'next/head'
 import { AbrirMenu } from '../utils/reSize.js'
+import Cookies from 'js-cookie'
+import AppContext from '../context/AppContext.js'
+
 
 export default function Navbar() {
 
-  const [ventana , setVentana] = useState('web')
+  const [ventana , setVentana] = useState('web')    
+  const router = useRouter()
+  const contextLogin = useContext(AppContext)
+
   useEffect( () => { window.addEventListener("resize", listen) }, [])
   // con esto hacemos que controlamos el tamño de la pantalla... 
   const listen = ()=>{ 
@@ -24,6 +30,11 @@ export default function Navbar() {
       classBody.split(" ").forEach(item=> (item.length > 0 )? document.querySelector("body").classList.remove(item) : '' )
       setVentana('web')
     }
+  }
+  const logout = ()=> {
+    Cookies.set('loggin', false )
+    contextLogin.setLoginContext(false)    
+    router.push('/login') 
   }
 
   return (
@@ -161,12 +172,10 @@ export default function Navbar() {
 
 
           <li className="nav-item d-none d-sm-inline-block" >
-            <Link href="/login">
-              <a className="nav-link text-center pt-0 pb-0 pl-3 pr-2"  data-widget="control-sidebar" data-slide="true" href="#" role="button">
+              <a className="nav-link text-center pt-0 pb-0 pl-3 pr-2" onClick={logout} data-widget="control-sidebar" data-slide="true" href="#" role="button">
                 <FontAwesomeIcon icon={faRightToBracket} className="icon-principal" />
                 <span className="d-block text-principal"><strong>Logout</strong></span>
               </a>
-            </Link>  
           </li>
           
         </ul>
