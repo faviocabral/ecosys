@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from '../../components/Dashboard.js'
+import Dashboard from '../../../components/Dashboard.js'
 
 export default function Proveedor() {
   return (
