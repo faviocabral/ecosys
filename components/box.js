@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChartSimple, faCircleRight, faUser } from '@fortawesome/free-solid-svg-icons'
 
-export default function Box({cantidad='', titulo='Titulo' , subTitulo='subTitulo' , color='bg-info' , icono=faChartSimple }) {
+export default function Box({cantidad='', titulo='Titulo' , subTitulo='subTitulo' , color='bg-info' , icono=faChartSimple , newEvent }) {
   return (
 
     <>
@@ -15,7 +15,7 @@ export default function Box({cantidad='', titulo='Titulo' , subTitulo='subTitulo
             <div className="icon">
                 <FontAwesomeIcon icon={ icono }  />
             </div>
-            <a href="#" className="small-box-footer"><b>{subTitulo}</b> <FontAwesomeIcon icon={faCircleRight}  /> </a>
+            <a href="#" className="small-box-footer" onClick={newEvent}><b>{subTitulo}</b> <FontAwesomeIcon icon={faCircleRight}  /> </a>
             </div>
         </div>
     </>

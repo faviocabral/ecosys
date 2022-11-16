@@ -67,17 +67,21 @@ export default function Menu() {
                             </a>
                             <ul className="nav nav-treeview">
                               <li className="nav-item">
+                                <Link href={'/' + item.title.toLowerCase() +'/crud' }>
                                 <a href="#" className="nav-link ">
                                   <FontAwesomeIcon icon={faCircle} className="left"/>
                                   <p> Nuevo</p>
                                 </a>
+                                </Link>
                               </li>
 
                               <li className="nav-item">
-                                <a href="#" className="nav-link">
-                                  <FontAwesomeIcon icon={faCircle} className="left"/>
-                                  <p> Listar</p>
-                                </a>
+                                <Link href={'/'+item.title.toLowerCase() +'/lista'}>                                
+                                  <a href="#" className="nav-link">
+                                    <FontAwesomeIcon icon={faCircle} className="left"/>
+                                    <p> Listar</p>
+                                  </a>
+                                </Link>
                               </li>
 
                               <li className="nav-item">

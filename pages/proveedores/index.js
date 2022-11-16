@@ -13,13 +13,13 @@ import {useRouter} from 'next/router'
 export default function Proveedores() {
   const contextMenu = useContext(AppContext)
   contextMenu.setMenu('Menu Proveedores') 
-  const router = useRouter()
-
+  const router = useRouter() 
+  
   return (
     <Dashboard>
     <div className="row">
 
-      <Box  cantidad={'120'} titulo={'Proveedores'} color={'bg-info'} subTitulo={'Nuevo Proveedor'} icono={faUsers} />
+      <Box  cantidad={'120'} titulo={'Proveedores'} color={'bg-info'} subTitulo={'Nuevo Proveedor'} icono={faUsers} newEvent={()=>{router.push('/proveedores/crud')}} />
       <Box  cantidad={'50'} titulo={'Facturas Pendientes'} color={'bg-success'} subTitulo={'Ver Saldos'}  />
       <Box  cantidad={'15 mill'} titulo={'Total Pendientes'} color={'bg-warning'} subTitulo={'Ver Facturas'} icono={faMoneyBill1Wave} />
       <Box  cantidad={'12 mill'} titulo={'Saldos Pendientes'} color={'bg-danger'} subTitulo={'Ver Saldos'} icono={faSackDollar} />

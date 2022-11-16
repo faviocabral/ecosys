@@ -12,7 +12,7 @@ export default function Dashboard({children}) {
  
   useEffect(()=> {
     if(contextLogin.loginContext === false) {
-      if(Cookies.get('loggin') == 'false' ){
+      if(Cookies.get('loggin') == 'false' || Cookies.get('loggin') === undefined){
         router.push("/login")
       }else{
         contextLogin.setLoginContext(true)
@@ -29,7 +29,7 @@ export default function Dashboard({children}) {
         <>
         <Navbar />
         <Menu />
-          <div className="content-wrapper" style={{minHeight: '100%', height:'100%'}}>
+          <div className="content-wrapper" style={{minHeight: '100%', height:'100%' , backgroundColor:'white'}}>
             <div className="content-header pb-1">
               <div className="container-fluid">
                 <div className="row mb-2">
